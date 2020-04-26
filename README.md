@@ -1,4 +1,4 @@
-# Udacity_C_notes 
+# Udacity C++ Notes
 ##### by Surohit Tandon
 
 ### Motivation
