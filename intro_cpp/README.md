@@ -1,5 +1,5 @@
 ##### Preface Notes:
-You may need to use `g++ -std=c++11` to specify compiler version for certain tasks (see vectors.cpp)
+You may need to use `g++ -std=c++17` to specify compiler version for certain tasks. 
 
 ### Compiled vs Interpreted
 Python is a commonly known interpreted language. This means the programe will compile at runtime.
