@@ -30,6 +30,11 @@ There are also Linked Lists which are used adhoc, Hash Tables for lookups and mo
 For longer comments, you can enclose the text with an opening
 slash-star and closing star-slash.
 */ 
-````
+```
+
+### Auto 
+
+Previosly we've seen the need to declare types. We can instead have the compiler determine the type based on the assigned value using the keyword `auto`.
+
 
 
