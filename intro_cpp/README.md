@@ -34,7 +34,9 @@ slash-star and closing star-slash.
 
 ### Auto 
 
-Previosly we've seen the need to declare types. We can instead have the compiler determine the type based on the assigned value using the keyword `auto`.
+Previously we've seen the need to declare types. We can instead have the compiler determine the type based on the assigned value using the keyword `auto`.
 
 
+### Working with Vectors
 
+When working with vectors, we must remember that c++ will allow you to access elements out of bounds of the vector. This will effectively return incorrect results (typically a pointer to value of 0). We can however, determine the size of a vector using the `.size()` method on an instance of a vector.
