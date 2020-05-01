@@ -40,3 +40,21 @@ Previously we've seen the need to declare types. We can instead have the compile
 ### Working with Vectors
 
 When working with vectors, we must remember that c++ will allow you to access elements out of bounds of the vector. This will effectively return incorrect results (typically a pointer to value of 0). We can however, determine the size of a vector using the `.size()` method on an instance of a vector.
+
+
+### For Loops
+
+the typical structure of a for loop requires an initial starting point, a termination cause and finally an increment assignment for the variable being evaluated. See below for reference:
+
+ 
+`int main() {
+    for (int i=0; i < 5; i++) {
+      cout << i << "\n";
+    }
+}`
+
+### Increments 
+
+the *post-increment* operator `++` comes from the name of C++. There is also a pre increment operator which would work as `++i` instead of `i++`. This also works for decrements using `--`
+
+
