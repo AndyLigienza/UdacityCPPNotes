@@ -25,12 +25,10 @@ There are also Linked Lists which are used adhoc, Hash Tables for lookups and mo
 ### Comments
 // You can use two forward slashes for single line comments.
 
-````
 /*
 For longer comments, you can enclose the text with an opening
 slash-star and closing star-slash.
 */ 
-```
 
 ### Auto 
 
