@@ -47,14 +47,51 @@ When working with vectors, we must remember that c++ will allow you to access el
 the typical structure of a for loop requires an initial starting point, a termination cause and finally an increment assignment for the variable being evaluated. See below for reference:
 
  
-`int main() {
+`
+int main() {
     for (int i=0; i < 5; i++) {
       cout << i << "\n";
     }
-}`
+}
+`
 
 ### Increments 
 
 the *post-increment* operator `++` comes from the name of C++. There is also a pre increment operator which would work as `++i` instead of `i++`. This also works for decrements using `--`
 
+### For Loops with Containers
+
+C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop"
+
+`
+
+int main() {
+    // Add your code here.
+    vector<int> a {1, 2, 3, 4, 5};
+    for (int i: a) {
+        cout << i << "\n";
+    }
+}
+`
+
+### Nested loops
+
+Looping within nested vectors can cause a bit of a headache. However, this is not so difficult. We simply need to remember the types we're working with!
+
+`
+int main() {
+    // Add your code here.
+    vector<vector<int>> b {{1, 2},
+                           {3, 4},
+                           {5, 6}};
+
+    // Write your double loop here.
+    for (vector v:b){
+        for (int i:v) {
+            cout <<i;
+        }
+        cout <<"\n";
+    }
+}
+`
 
