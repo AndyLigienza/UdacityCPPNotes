@@ -77,8 +77,8 @@ Looping within nested vectors can cause a bit of a headache. However, this is no
 
 `
 int main() {
-    // Add your code here.
-    vector<vector<int>> b {{1, 2},
+    
+	vector<vector<int>> b {{1, 2},
                            {3, 4},
                            {5, 6}};
 
