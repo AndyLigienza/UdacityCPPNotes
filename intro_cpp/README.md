@@ -62,7 +62,6 @@ the *post-increment* operator `++` comes from the name of C++. There is also a p
 C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop"
 
 `
-
 int main() {
     // Add your code here.
     vector<int> a {1, 2, 3, 4, 5};
