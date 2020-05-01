@@ -77,18 +77,15 @@ Looping within nested vectors can cause a bit of a headache. However, this is no
 
 `
 int main() {
-    
 	vector<vector<int>> b {{1, 2},
                            {3, 4},
                            {5, 6}};
-
-    // Write your double loop here.
-    for (vector v:b){
-        for (int i:v) {
-            cout <<i;
-        }
-        cout <<"\n";
-    }
+    	for (vector v:b){
+        	for (int i:v) {
+            		cout <<i;
+        	}
+       		cout <<"\n";
+    	}
 }
 `
 
