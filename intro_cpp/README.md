@@ -129,6 +129,7 @@ C++ `ifstream` objects can also be used as a boolean to check if the stream has 
 The following cell creates an input stream from the file `"files/1.board"`:
 
 `
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -141,6 +142,7 @@ int main()
       std::cout << "The file stream has been created!" << "\n";
     }    
 }
+
 `
 
 ### Reading Data from the Stream
@@ -149,6 +151,7 @@ If the input file stream object has been successfully created, the lines of the 
 
 
 `
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -164,6 +167,7 @@ int main() {
         }
     }
 }
+
 `
 
 
@@ -185,6 +189,7 @@ One way to stream a string is to use an input string stream object `istringstrea
 Once an `istringstream` object has been created, parts of the string can be streamed and stored using the "extraction operator": `>>`. The extraction operator will read until whitespace is reached or until the stream fails. Execute the following code to see how this works:
 
 `
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -203,6 +208,7 @@ int main ()
     my_stream >> n;
     cout << n << "\n";
 }
+
 `
 
 
