@@ -32,9 +32,6 @@ vector<vector<int>> ReadBoardFile(string path) {
     while (getline(myfile, line)) {
       // TODO: Replace the "cout" code with a call to ParseLine for each line and push the results of ParseLine to the back of the board.
       board.push_back(ParseLine(line));
-
-      // running cout to prove this function works
-      cout << line << "/n";
     }
   }
   // TODO: Return the board variable.
@@ -53,7 +50,7 @@ void PrintBoard(const vector<vector<int>> board) {
 int main() {
    
   // TODO: Store the output of ReadBoardFile in the "board" variable.
-  auto board = ReadBoardFile("1.board");
+  auto board = ReadBoardFile("files/1.board");
   // TODO: Uncomment PrintBoard below to print "board".
   PrintBoard(board);
 }
