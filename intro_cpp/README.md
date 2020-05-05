@@ -45,13 +45,13 @@ When working with vectors, we must remember that c++ will allow you to access el
 the typical structure of a for loop requires an initial starting point, a termination cause and finally an increment assignment for the variable being evaluated. See below for reference:
 
  
-`
+```cpp
 int main() {
     for (int i=0; i < 5; i++) {
       cout << i << "\n";
     }
 }
-`
+```
 
 ### Increments 
 
@@ -61,7 +61,7 @@ the *post-increment* operator `++` comes from the name of C++. There is also a p
 
 C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop"
 
-`
+```cpp
 int main() {
     // Add your code here.
     vector<int> a {1, 2, 3, 4, 5};
@@ -69,13 +69,13 @@ int main() {
         cout << i << "\n";
     }
 }
-`
+```
 
 ### Nested loops
 
 Looping within nested vectors can cause a bit of a headache. However, this is not so difficult. We simply need to remember the types we're working with!
 
-`
+```cpp
 int main() {
 	vector<vector<int>> b {{1, 2},
                            {3, 4},
@@ -87,16 +87,16 @@ int main() {
        		cout <<"\n";
     	}
 }
-`
+```
 
 ### Functions 
 
 functions operate in the same vain as the main loop. the basic syntax is as follows:
-`
+```cpp
 return_type FunctionName(paramater_list) {
 	\\body of function 
 }
-`
+```
 
 ##### Void Functions
 
@@ -115,20 +115,20 @@ The syntax for a `while` loop looks very similar to the syntax for the `if` stat
 In C++, you can use the `std::ifstream` object to handle input file streams. To do this, you will need to include the header file that provides the file streaming classes: `<fstream>`. 
 
 Once the `<fstream>` header is included, a new input stream object can be declared and initialized using a file path `path`:
-```
+```cpp
 std::ifstream my_file;
 my_file.open(path);
 ```
 
 Alternatively, the declaration and initialization can be done in a single line as follows:
-```
+```cpp
 std::ifstream my_file(path);
 ```
 C++ `ifstream` objects can also be used as a boolean to check if the stream has been created successfully. If the stream were to initialize successfully, then the `ifstream` object would evaluate to `true`. If there were to be an error opening the file or some other error creating the stream, then the `ifstream` object would evaluate to `false`.
 
 The following cell creates an input stream from the file `"files/1.board"`:
 
-`
+```cpp
 int main()
 {
     std::ifstream my_file;
@@ -137,14 +137,14 @@ int main()
       std::cout << "The file stream has been created!" << "\n";
     }    
 }
-`
+```
 
 ### Reading Data from the Stream
 
 If the input file stream object has been successfully created, the lines of the input stream can be read using the `getline` method. In the cell below, a while loop has been added to the previous example to get each line from the stream and print it to the console.
 
 
-`
+```cpp
 int main() {
     std::ifstream my_file;
     my_file.open("files/1.board");
@@ -156,11 +156,7 @@ int main() {
         }
     }
 }
-`
-
-
-
-
+```
 
 That's it! To recap, there are essentially four steps to reading a file:
 1. `#include <fstream>`
@@ -176,7 +172,7 @@ One way to stream a string is to use an input string stream object `istringstrea
 
 Once an `istringstream` object has been created, parts of the string can be streamed and stored using the "extraction operator": `>>`. The extraction operator will read until whitespace is reached or until the stream fails. Execute the following code to see how this works:
 
-`
+```cpp
 using std::istringstream;
 using std::string;
 using std::cout;
@@ -191,7 +187,7 @@ int main ()
     my_stream >> n;
     cout << n << "\n";
 }
-`
+```
 ### Adding data to Vectors
 Now that you are able to process a string, you may want to store the results of the processing in a convenient container for later use. In the next exercise, you will store the streamed `int`s from each line of the board in a `vector<int>`. To do this, you will add the `int`s to the back of the vector, using the `vector` method `push_back`.
 
@@ -213,7 +209,7 @@ Suppose you were writing a program that stores information about each user's car
 
 This way, you can be sure that each color is restricted to the acceptable set of values.
 
-`
+```cpp
 int main() 
 {
     // Create the enum Color with fixed values.
@@ -229,7 +225,7 @@ int main()
         cout << "The color of my car is not red." << "\n";
     }
 }
-`
+```
 
 # Review and Recap
 
