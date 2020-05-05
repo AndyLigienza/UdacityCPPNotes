@@ -192,5 +192,19 @@ int main ()
     cout << n << "\n";
 }
 `
+### Adding data to Vectors
+Now that you are able to process a string, you may want to store the results of the processing in a convenient container for later use. In the next exercise, you will store the streamed `int`s from each line of the board in a `vector<int>`. To do this, you will add the `int`s to the back of the vector, using the `vector` method `push_back`.
+
+In this section, you have learned about two useful tools:
+
+- String streams, and
+- `vector` `push_back`.
+
+The string streaming objects in C++ are very powerful, and there are many more ways that an `istringstream` can be used. We encourage you to have a look at all of the available functions in [the C++ reference](http://www.cplusplus.com/reference/sstream/istringstream/). However, at this point you are ready for the next exercise. In this exercise, you will parse string lines from the board and store the `int`s in a vector using the `istringstream` and `push_back` methods from above. Have a careful look at the examples again, and copy paste any code you think you might need before clicking the `Next` button below.
+
+
+
+
+
 
 
