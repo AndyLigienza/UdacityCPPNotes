@@ -234,7 +234,7 @@ int main()
 # Review and Recap
 
 At this point, your program should look like the program below. You have built this short program from scratch, so now is great time to review the code to ensure you recall how each part of it works. Looking at `final_exercise.cpp` we will find the following code, make sure you understand it before moving forward: 
-`
+```cpp
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -296,7 +296,7 @@ int main() {
   auto board = ReadBoardFile("1.board");
   PrintBoard(board);
 }
-`
+```
 
 
 
