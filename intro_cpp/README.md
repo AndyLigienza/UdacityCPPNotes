@@ -202,6 +202,38 @@ In this section, you have learned about two useful tools:
 
 The string streaming objects in C++ are very powerful, and there are many more ways that an `istringstream` can be used. We encourage you to have a look at all of the available functions in [the C++ reference](http://www.cplusplus.com/reference/sstream/istringstream/). However, at this point you are ready for the next exercise. In this exercise, you will parse string lines from the board and store the `int`s in a vector using the `istringstream` and `push_back` methods from above. Have a careful look at the examples again, and copy paste any code you think you might need before clicking the `Next` button below.
 
+### Enums
+C++ allows you to define a custom type which has values limited to a specific range you list or "enumerate". This custom type is called an "enum".
+
+Suppose you were writing a program that stores information about each user's car, including the color. You could define a `Color` `enum` in your program, with a fixed range of all the acceptable values: 
+- `white`
+- `black`
+- `blue`
+- `red`
+
+This way, you can be sure that each color is restricted to the acceptable set of values.
+
+`
+int main() 
+{
+    // Create the enum Color with fixed values.
+    enum class Color {white, black, blue, red};
+
+    // Create a Color variable and set it to Color::blue.
+    Color my_color = Color::blue;
+
+    // Test to see if my car is red.
+    if (my_color == Color::red) {
+        cout << "The color of my car is red!" << "\n";
+    } else {
+        cout << "The color of my car is not red." << "\n";
+    }
+}
+`
+
+
+
+
 
 
 
