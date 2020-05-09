@@ -26,6 +26,11 @@ expand from each of these new nodes to all the surrounding nodes. ie:
 with each node `[[0,2],[1,1],[2,0]]` (notice how 1,1 overlapped) costing 2 (g).
 Each "tree" would expand (given whatever restrictions) until the smallest cost path was found.
 
+This algorithm described by Sebastian is very similar to other search algorithms 
+you may have seen before, such as [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search),
+except for the additional step of computing a heuristic and using that heuristic (in addition 
+to the cost) to find the next node.
+
 #### AStar Psuedocode
 **Search**( grid, initial_point, goal_point ) :
 
