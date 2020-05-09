@@ -27,7 +27,7 @@ with each node `[[0,2],[1,1],[2,0]]` (notice how 1,1 overlapped) costing 2 (g).
 Each "tree" would expand (given whatever restrictions) until the smallest cost path was found.
 
 #### AStar Psuedocode
-*Search*( grid, initial_point, goal_point ) :
+**Search**( grid, initial_point, goal_point ) :
 
 1. Initialize an empty list of open nodes.
 
@@ -54,7 +54,7 @@ Each "tree" would expand (given whatever restrictions) until the smallest cost p
 5. If you exit the while loop because the list of open nodes is empty, you have run out of new nodes to explore and haven't found a path.
 
 
-*A Star Summary*:
+**A Star Summary**:
 algorithm finds a path from the start node to the end node by checking for 
 open neighbors of the current node, computing a heuristic for each of the 
 neighbors, and adding those neighbors to the list of open nodes to explore 
