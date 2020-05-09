@@ -68,4 +68,6 @@ heuristic (g + h). This process is repeated until the end is found, as long as
 there are still open nodes to explore.
 
 
+We will be using the following code structue to build the `A*` path finding algorithm:
 
+![Udacity Image](Capture.PNG)
