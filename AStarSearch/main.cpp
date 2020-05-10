@@ -10,7 +10,7 @@ using std::string;
 using std::vector;
 using std::abs;
 
-enum class State {kEmprty, kObstacle};
+enum class State {kEmpty, kObstacle};
 
 vector<State> ParseLine(string line){
     istringstream sline(line);
@@ -41,7 +41,13 @@ vector<vector<State>> ReadBoardFile(string path) {
 }
 
 // TODO: Write the Search function stub here. 
+vector<vector<State>> Search(vector<vector<State>> board, vector<int> start,
+        vector<int> stop){
+    cout << "No Path Found!" << "\n";
+    vector<vector<State>> path;
 
+    return path; 
+}
 
 
 string CellString(State cell){
@@ -54,7 +60,7 @@ string CellString(State cell){
 
 void PrintBoard(const vector<vector<State>> board){
     for (int i = 0;i < board.size(); i++){
-        for (int j = 0; j<board[i].size(), j++){
+        for (int j = 0; j<board[i].size(); j++){
             cout << CellString(board[i][j]);
         }
         cout << "\n";
@@ -67,5 +73,10 @@ int main(){
     // TODO: Call Search with "board", "init", and "goal". 
     // Store the results in the variable "solution".
     // TODO: Change the following line to pass "solution" to PrintBoard.
-    PrintBoard(board);
+    vector<int>start{0,0};
+    vector<int>end{4,5};
+
+    auto solution = Search(board, start, end);
+    
+    PrintBoard(solution);
 }
