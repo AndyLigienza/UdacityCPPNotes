@@ -40,6 +40,16 @@ vector<vector<State>> ReadBoardFile(string path) {
     return board;
 }
 
+// TODO: Write function to compare the f-value of two nodes here
+bool Compare(vector<int> node1, vector<int> node2){
+    if (node1[2]+node1[3] > node2[2]+node2[3]){
+        return true
+    } else {
+        return false;
+    }
+}
+
+
 // TODO: Write the Heruistic Function here:
 int Heuristic(int x_1, int, y_1, int x_2, int y_2){
     // Using Manhattan distance
@@ -61,6 +71,18 @@ vector<vector<State>> Search(vector<vector<State>> board, vector<int> start,
         vector<int> stop){
     cout << "No Path Found!" << "\n";
     vector<vector<State>> path;
+
+    // TODO: Initialize the starting node.
+    vector<vector<int>> open {};
+    
+    // TODO: Initialize the starting node.
+    int x = start[0];
+    int y = start[1];
+    int g = 0;
+    
+    int h = Heuristic(x,y,stop[0], stop[1]);
+
+    AddToOpen(x,y,g,h, open, board);
 
     return path; 
 }
