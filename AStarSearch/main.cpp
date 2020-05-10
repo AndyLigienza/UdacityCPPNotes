@@ -10,7 +10,7 @@ using std::string;
 using std::vector;
 using std::abs;
 
-enum class State {kEmpty, kObstacle};
+enum class State {kEmpty, kObstacle, kClosed};
 
 vector<State> ParseLine(string line){
     istringstream sline(line);
@@ -40,12 +40,20 @@ vector<vector<State>> ReadBoardFile(string path) {
     return board;
 }
 
-int Absolute
-
 // TODO: Write the Heruistic Function here:
 int Heuristic(int x_1, int, y_1, int x_2, int y_2){
     // Using Manhattan distance
    return abs(x2 - x1) + abs(y2 - y1);
+}
+
+
+// TODO: Write the AddToOpen function here:
+void AddToOpen(int x, int y, int g, int h,
+        vector<vector<int>> &openNodes,
+        vector<vector<State>> &board
+        ){
+    openNodes.push_back(vector{x,y,g,h});
+    board[x][y] = State::kClosed;
 }
 
 // TODO: Write the Search function stub here. 
