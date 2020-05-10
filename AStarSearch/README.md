@@ -71,3 +71,17 @@ there are still open nodes to explore.
 We will be using the following code structue to build the `A*` path finding algorithm:
 
 ![Udacity Image](Capture.PNG)
+
+
+The code for the `A*` search algorithm has been broken down into the following 
+functions:
+
+- CellSort() - sorts the open list according to the sum of h + g
+- ExpandNeighbors() - loops through the current node's neighbors and calls appropriate functions to add neighbors to the open list
+- CheckValidCell() - ensures that the potential neighbor coordinates are on the grid and that the cell is open
+- Heuristic() - computes the distance to the goal
+- AddToOpen() - adds the node to the open list and marks the grid cell as closed
+
+You will be implementing these functions along with a few other small helper 
+functions throughout the rest of this lesson to complete the ASCII `A*`
+search program.
