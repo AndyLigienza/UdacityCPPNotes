@@ -85,3 +85,34 @@ functions:
 You will be implementing these functions along with a few other small helper 
 functions throughout the rest of this lesson to complete the ASCII `A*`
 search program.
+
+
+### Pass by Reference
+you've written functions that accept and return various kinds of objects. 
+However, in all of the functions you've written so far, the objects returned 
+by the function are different from the objects provided to the function. In other
+words, when the function is called on some data, a copy of that data is made, 
+and the function operates on a copy of the data instead of the original data. 
+This is referred to as pass by value, since only a copy of the values of an
+object are passed to the function, and not the actual objects itself.
+
+ie: 
+````cpp
+include <iostream>
+using std::cout;
+
+
+int MultiplyByTwo(int i) {
+    i = 2*i;
+    return i;
+}
+
+int main() {
+    int a = 5;
+    cout << "The int a equals: " << a << "\n";
+    int b = MultiplyByTwo(a);
+    cout << "The int b equals: " << b << "\n";
+    cout << "The int a still equals: " << a << "\n";
+}
+````
+

@@ -40,6 +40,14 @@ vector<vector<State>> ReadBoardFile(string path) {
     return board;
 }
 
+int Absolute
+
+// TODO: Write the Heruistic Function here:
+int Heuristic(int x_1, int, y_1, int x_2, int y_2){
+    // Using Manhattan distance
+   return abs(x2 - x1) + abs(y2 - y1);
+}
+
 // TODO: Write the Search function stub here. 
 vector<vector<State>> Search(vector<vector<State>> board, vector<int> start,
         vector<int> stop){
