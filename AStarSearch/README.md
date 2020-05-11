@@ -114,5 +114,82 @@ int main() {
     cout << "The int b equals: " << b << "\n";
     cout << "The int a still equals: " << a << "\n";
 }
-````
+```
+
+### Constants
+
+This example highlights how to use `const` to promise not to modify a variable,
+even though the variable can only be evaluated at run time.
+
+The example also show how to use `constexpr` to guarantee that a variable can
+be evaluated at compile time.
+
+````cpp 
+#include <iostream>
+
+int main()
+{
+   int i;
+   std::cout << "Enter an integer value for i: ";
+   std::cin >> i;
+   const int j = i * 2;  // "j can only be evaluated at run time."
+   // "But I promise not to change it after it is initialized."
+                                                  
+   constexpr int k = 3;  // "k, in contrast, can be evaluated at compile time."
+  
+   std::cout << "j = " << j << "\n";
+   std::cout << "k = " << k << "\n";
+}
+
+```
+A common usage of `const` is to guard against accidentally changing a variable,
+especially when it is passed-by-reference as a function argument.
+
+````cpp
+#include <iostream>
+#include <vector>
+
+int sum(const std::vector<int> &v)
+{
+        int sum = 0;
+            for(int i : v)
+                        sum += i;
+                            return sum;
+}
+
+int main()
+{
+        std::vector<int> v {0, 1, 2, 3, 4};
+            std::cout << sum(v) << "\n";
+}
+
+```
+
+#### Arrays
+**Note:** we have provided directional deltas in the form of a 2D (array)[https://www.programiz.com/cpp-programming/arrays]. 
+An array is a C++ container much like a vector, although without the ability 
+to change size after initialization. Arrays can be accessed and iterated over just as vectors.
+
+In the exercise, you can iterate over these delta values to check the 
+neighbors in each direction:
+
+````cpp
+// directional deltas
+const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+```
+
+Arrays are a lower level data structure than vectors, and can be slightly more 
+efficient, in terms of memory and element access. However, this efficiency comes 
+with a price. Unlike vectors, which can be extended with more elements, 
+arrays have a fixed length. Additionally, arrays may require careful memory 
+management, depending how they are used.
+
+
+The example in the project code is a good use case for an array, as it was not 
+intended to be changed during the execution of the program. However, a vector 
+would have worked there as well.
+
+Due to the allocation of memory issue, Bjorne does not believe that arrays belong
+within application code. This is a source of controversy between c and c++.
+
 
