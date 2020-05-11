@@ -97,7 +97,7 @@ This is referred to as pass by value, since only a copy of the values of an
 object are passed to the function, and not the actual objects itself.
 
 ie: 
-````cpp
+```cpp
 include <iostream>
 using std::cout;
 
@@ -124,7 +124,7 @@ even though the variable can only be evaluated at run time.
 The example also show how to use `constexpr` to guarantee that a variable can
 be evaluated at compile time.
 
-````cpp 
+```cpp 
 #include <iostream>
 
 int main()
@@ -145,7 +145,7 @@ int main()
 A common usage of `const` is to guard against accidentally changing a variable,
 especially when it is passed-by-reference as a function argument.
 
-````cpp
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -173,7 +173,7 @@ to change size after initialization. Arrays can be accessed and iterated over ju
 In the exercise, you can iterate over these delta values to check the 
 neighbors in each direction:
 
-````cpp
+```cpp
 // directional deltas
 const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 ```
