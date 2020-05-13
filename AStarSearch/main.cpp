@@ -151,7 +151,7 @@ vector<vector<State>> Search(vector<vector<State>> board, vector<int> start,
             return board;
         } 
         // If we're not done, expand search to current node's neighbors. This step will be completed in a later quiz.
-        // ExpandNeighbors    
+        ExpandNeighbors(currentNode, stop, open, board);    
         
     //} // TODO: End while loop
     }
