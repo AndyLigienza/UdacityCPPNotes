@@ -91,7 +91,7 @@ void AddToOpen(int x, int y, int g, int h,
 }
 // TODO: ExpandNeighbors(arguments) {
 void ExpandNeighbors(const vector<int> &current,
-        int goal[2],
+        vector<int> goal,
         vector<vector<int>> &openlist,
         vector<vector<State>> &grid) {
 // Get current node's data.
