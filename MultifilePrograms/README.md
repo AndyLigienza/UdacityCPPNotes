@@ -91,5 +91,13 @@ already. If it has not been defined yet, then it is defined with
 `#define HEADER_EXAMPLE_H`, and the rest of the header is used. If 
 `HEADER_EXAMPLE_H` has already been defined, then the preprocessor does not 
 enter the `ifndef` block.
-**Note:** There are other ways to do this. Another common way is to use an `#pragma once`preprocessor directive, but we won't cover that in detail here. See [this Wikipedia article](https://en.wikipedia.org/wiki/Include_guard) for examples.
+**Note:** There are other ways to do this. Another common way is to use an 
+`#pragma once`preprocessor directive, but we won't cover that in detail here. 
+See [this Wikipedia article](https://en.wikipedia.org/wiki/Include_guard) for 
+examples.
+
+Running `main2.cpp`:
+`c17 main2.cpp increment_and_sum.cpp vect_add_one.cpp`
+
+
 
