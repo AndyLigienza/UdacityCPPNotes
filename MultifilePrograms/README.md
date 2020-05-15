@@ -137,3 +137,62 @@ g++ -std=c++17 ./code/main.cpp ./code/increment_and_sum.cpp ./code/vect_add_one.
 >When compiling, each of the relevant `.cpp` files must be included in the 
 compile command. The `-std=c++17` specifies that we are using the C++ 17 standard 
 (which happens automatically in the terminal).
+
+### CMake and Make
+
+In the previous notebook, you saw how example code could be split into 
+multiple .h and .cpp files, and you used g++ to build all of the files 
+together. For small projects with a handful of files, this works well. But what 
+would happen if there were hundreds, or even thousands, of files in the project? 
+You could type the names of the files at the command line each time, but there 
+tools to make this easier.
+
+Many larger C++ projects use a [build system](https://en.wikipedia.org/wiki/List_of_build_automation_software) 
+to manage all the files during the build process. The build system allows for 
+large projects to be compiled with a few commands, and build systems are able 
+to do this in an efficient way by only recompiling files that have been changed.
+
+#### Object Files
+
+When you compile a project with g++, g++ actually performs several distinct tasks:
+1. The preprocessor runs and executes any statement beginning with a hash 
+symbol: `#`, such as `#include` statements. This ensures all code is in the 
+correct location and ready to compile.
+2. Each file in the source code is compiled into an "object file" (a .o file). 
+Object files are platform-specific machine code that will be used to create an executable.
+3. The object files are "linked" together to make a single executable. In the 
+examples you have seen so far, this executable is `a.out`, but you can specify 
+whatever name you want.
+
+It is possible to have `g++` perform each of the steps separately by using the 
+`-c` flag. For example,
+```bash
+g++ -c main.cpp
+```
+will produce a `main.o` file, and that file can be converted to an executable 
+with 
+```bash
+g++ main.o
+```
+
+##### Compiling One File of Many, Step 1
+In the previous example, you compiled a single source code file to an object 
+file, and that object file was then converted into an executable.
+
+Now you are going to try the same process with multiple files. Navigate to the 
+`multiple_files_example` directory in the terminal to the right. 
+This directory should have the `increment_and_sum` and `vect_add_one` 
+files from a previous Notebook. Try compiling with the commands below:
+
+```bash 
+root@abc123defg:/home/workspace/multiple_files_example# g++ -c *.cpp
+root@abc123defg:/home/workspace/multiple_files_example# g++ *.o
+root@abc123defg:/home/workspace/multiple_files_example# ./a.out
+```
+Here, the `*` operator is a wildcard, so any matching file is selected. If you 
+compile and run these files together, the executable should print:
+>The total is: 14
+
+
+
+
