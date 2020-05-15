@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/increment_and_sum.cpp
+vect_add_one.h
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/vect_add_one.h
+
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/increment_and_sum.h
+vector
+-
+
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/main.cpp
+iostream
+-
+vector
+-
+increment_and_sum.h
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/increment_and_sum.h
+
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/vect_add_one.cpp
+vect_add_one.h
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/vect_add_one.h
+
+/home/chocochip/documents/UdacityCPPNanodegree/Udacity_C_notes/MultifilePrograms/executes/vect_add_one.h
+vector
+-
+

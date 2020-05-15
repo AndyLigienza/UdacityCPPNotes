@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/run_execs.dir/executes/main.cpp.o CMakeFiles/run_execs.dir/executes/increment_and_sum.cpp.o CMakeFiles/run_execs.dir/executes/vect_add_one.cpp.o  -o run_execs 
