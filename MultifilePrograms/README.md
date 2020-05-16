@@ -644,3 +644,52 @@ be used? The following list summarizes some of the differences between pointers 
 references, as well as when each should be used:
 
 ![Udacity Image](Capture.PNG)
+
+References are generally easier and safer than pointers. As a decent rule of 
+thumb, references should be used in place of pointers when possible.
+
+However, there are times when it is not possible to use references. One example 
+is object initialization. You might like one object to store a reference to 
+another object. However, if the other object is not yet available when the first 
+object is created, then the first object will need to use a pointer, not a reference, 
+since a reference cannot be null. The reference could only be initialized once 
+the other object is created.
+
+### Maps
+So far in this course you have seen container data structures, like the 
+vector and the array. Additionally, you have used classes in your code for 
+this project. Container data structures are fantastic for storing ordered data, 
+and classes are useful for grouping related data and functions together, but 
+neither of these data structures is optimal for storing associated data.
+
+#### Dictionary Example
+
+A map (alternatively [hash table](https://en.wikipedia.org/wiki/Hash_table), 
+hash map, or dictionary) is a data structure that uses key/value pairs to store 
+data, and provides efficient lookup and insertion of the data. The name 
+"dictionary" should provide an excellent idea of how these work, since a dictionary 
+is a real life example of a map. Here is a slightly edited entry from 
+[www.dictionary.com](https://www.dictionary.com/browse/word?s=t) defining the word "word":
+
+>word
+- a unit of language, consisting of one or more spoken sounds or their 
+written representation, that functions as a principal carrier of meaning.
+- speech or talk: to express one's emotion in words.
+- a short talk or conversation: "Marston, I'd like a word with you."
+- an expression or utterance: a word of warning.
+
+
+#### Data Representioantion
+If you were to store this data in your program, you would probably want to be 
+able to quickly look up the definitions using the key "word". With a map, a 
+vector of definitions could be stored as the value corresponding to the "word" 
+key:
+
+![Udacity](Capture1.PNG)
+
+In the following notebook, you will learn how to use an `unordered_map`, 
+which is the C++ standard library implementation of a map. Although C++ has 
+several different implementations of map data structures which are similar, 
+`unordered_map` is the structure that you will use in your project.
+
+
