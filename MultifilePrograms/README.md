@@ -49,7 +49,7 @@ void InnerFunction(int);
 ```cpp
 // The contents of header_example.h are included in 
 // the corresponding .cpp file using quotes:
-#include "header_example.h"
+#ing pointers with functions, some care should be taken. If a pointer is passed to a function and then assigned to a variable in the function that goes out of scope after the function finishes executing, then the pointer will have undefined behavior at that point - the memory it is pointing to might be overwritten by other parts of the program.nclude "header_example.h"
 
 #include <iostream>
 using std::cout;
@@ -465,5 +465,182 @@ int main()
 }
 ```
 
+As you can see from the code, the variable `pointer_to_i` is declared as a 
+pointer to an `int` using the `*` symbol, and `pointer_to_i` is set to the 
+address of `i`. From the printout, it can be seen that `pointer_to_i` holds 
+the same value as the address of `i`.
 
 
+
+
+#### Getting an Object Back from a Pointer Address
+
+Once you have a pointer, you may want to retrieve the object it is pointing to. 
+In this case, the `*` symbol can be used again. This time, however, it will 
+appear on the right hand side of an equation or in front of an already-defined 
+variable, so the meaning is different. In this case, it is called the "dereferencing 
+operator", and it returns the object being pointed to. You can see how this works 
+with the code below:
+
+```cpp
+#include <iostream>
+using std::cout;
+
+int main() 
+{
+  int i = 5;
+  // A pointer pointer_to_i is declared and initialized to the address of i.
+  int* pointer_to_i = &i;
+                    
+  // Print the memory addresses of i and j
+  cout << "The address of i is:          " << &i << "\n";
+  cout << "The variable pointer_to_i is: " << pointer_to_i << "\n";
+  cout << "The value of the variable pointed to by pointer_to_i is: " << *pointer_to_i << "\n";
+}
+```
+In the following example, the code is similar to above, except that the object 
+that is being pointed to is changed before the pointer is dereferenced. 
+Before executing the following code, guess what you think will happen to the 
+value of the dereferenced pointer.
+
+```cpp
+#include <iostream>
+using std::cout;
+
+int main() {
+  int i = 5;
+  // A pointer pointer_to_i is declared and initialized to the address of i.
+  int* pointer_to_i = &i;
+                    
+  // Print the memory addresses of i and j
+  cout << "The address of i is:          " << &i << "\n";
+  cout << "The variable pointer_to_i is: " << pointer_to_i << "\n";
+                                    
+  // The value of i is changed.
+  i = 7;
+  cout << "The new value of the variable i is                     : " << i << "\n";
+  cout << "The value of the variable pointed to by pointer_to_i is: " << *pointer_to_i << "\n";
+}
+```
+
+
+
+### Pointers to Other Object Types
+
+Although the type of object being pointed to must be included in a pointer 
+declaration, pointers hold the same kind of value for every type of object: 
+just a memory address to where the object is stored. In the following code, 
+a vector is declared. Write your own code to create a pointer to the address 
+of that vector. Then, dereference your pointer and print the value of the 
+first item in the vector.
+
+```cpp
+#include <iostream>
+#include <vector>
+using std::cout;
+using std::vector;
+
+int main() {
+   // Vector v is declared and initialized to {1, 2, 3}
+   vector<int> v {1, 2, 3};
+                
+   // Declare and initialize a pointer to the address of v here:
+   vector<int> *point_to_v = &v; 
+   // The following loops over each int a in the vector v and prints.
+   // Note that this uses a "range-based" for loop:
+   // https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Res-for-range
+   for (int a: v) {
+   cout << a << "\n";
+   }
+   cout<<"Pointer location: " <<point_to_v<<"\n";
+   cout<<"value at pointer: " <<(*point_to_v)[0]<<"\n";
+   // Dereference your pointer to v and print the int at index 0 here (note: you should print 1):
+}
+```
+
+#### Passing Pointers to a Function
+
+Pointers can be used in another form of pass-by-reference when working with 
+functions. When used in this context, they work much like the references that 
+you used for pass-by reference previously. If the pointer is pointing to a large
+object, it can be much more efficient to pass the pointer to a function than 
+to pass a copy of the object as with pass-by-value.
+
+In the following code, a pointer to an int is created, and that pointer is passed 
+to a function. The object pointed to is then modified in the function.
+
+```cpp
+#include <iostream>
+using std::cout;
+
+void AddOne(int* j)
+{
+   // Dereference the pointer and increment the int being pointed to.
+   (*j)++;
+}
+
+int main() 
+{
+   int i = 1;
+   cout << "The value of i is: " << i << "\n";
+                
+   // Declare a pointer to i:
+   int* pi = &i;
+   AddOne(pi);
+   cout << "The value of i is now: " << i << "\n";
+}
+```
+When using pointers with functions, some care should be taken. If a pointer is 
+passed to a function and then assigned to a variable in the function that goes out
+of scope after the function finishes executing, then the pointer will have undefined
+behavior at that point - the memory it is pointing to might be overwritten 
+by other parts of the program.
+
+
+
+#### Returning a Pointer from a Function
+
+You can also return a pointer from a function. As mentioned just above, if you do 
+this, you must be careful that the object being pointed to doesn't go out of 
+scope when the function finishes executing. If the object goes out of scope, the 
+memory address being pointed to might then be used for something else.
+
+In the example below, a reference is passed into a function and a pointer is returned.
+This is safe since the pointer being returned points to a reference - a variable 
+that exists outside of the function and will not go out of scope in the function.
+
+```
+#include <iostream>
+using std::cout;
+
+int* AddOne(int& j) 
+{
+  // Increment the referenced int and return the
+  // address of j.
+  j++;
+  return &j;
+}
+
+int main() 
+{
+  int i = 1;
+  cout << "The value of i is: " << i << "\n";
+                
+  // Declare a pointer and initialize to the value
+  // returned by AddOne:
+  int* my_pointer = AddOne(i);
+  cout << "The value of i is now: " << i << "\n";
+  cout << "The value of the int pointed to by my_pointer is: " << *my_pointer << "\n";
+}
+```
+#### References vs Pointers
+
+Pointers and references can have similar use cases in C++. As seen previously 
+both references and pointers can be used in pass-by-reference to a function. 
+Additionally, they both provide an alternative way to access an existing variable: 
+pointers through the variable's address, and references through another name for 
+that variable. But what are the differences between the two, and when should each 
+be used? The following list summarizes some of the differences between pointers and 
+references, as well as when each should be used:
+
+[Udacity Image](Capture.PNG)
