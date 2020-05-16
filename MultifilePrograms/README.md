@@ -643,4 +643,4 @@ that variable. But what are the differences between the two, and when should eac
 be used? The following list summarizes some of the differences between pointers and 
 references, as well as when each should be used:
 
-[Udacity Image](Capture.PNG)
+![Udacity Image](Capture.PNG)
