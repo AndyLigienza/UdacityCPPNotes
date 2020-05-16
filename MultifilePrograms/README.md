@@ -609,7 +609,7 @@ In the example below, a reference is passed into a function and a pointer is ret
 This is safe since the pointer being returned points to a reference - a variable 
 that exists outside of the function and will not go out of scope in the function.
 
-```
+```cpp
 #include <iostream>
 using std::cout;
 
