@@ -50,5 +50,5 @@ sections of the river, labeled as "Areas" in the image below. Another way is
 used to represent the island in the middle of the river. These ways are 
 then grouped together using a relation, which represents the entire river.
 
-[River](river.PNG)
+![River](river.PNG)
 
