@@ -230,6 +230,146 @@ Now we have a set of invariants for the the class members!
 
 As a general rule, member data subject to an invariant should be specified private, in order to enforce the invariant before updating the member's value.
 
+### Constructors
+Constructors are member functions of a class or struct that initialize an object. The Core Guidelines define a constructor) as:
+
+>constructor: an operation that initializes (“constructs”) an object. Typically a constructor establishes an invariant and often acquires resources needed for an object to be used (which are then typically released by a destructor).
+
+A constructor can take arguments, which can be used to assign values to member variables.
+
+```cpp
+class Date {
+ public:
+  Date(int d, int m, int y) {  // This is a constructor.
+    Day(d);
+  }
+  int Day() { return day; }
+  void Day(int d) {
+    if (d >= 1 && d <= 31) day = d;
+  }
+  int Month() { return month; }
+  void Month(int m) {
+    if (m >= 1 && m <= 12) month = m;
+  }
+  int Year() { return year_; }
+  void Year(int y) { year = y; }
+
+ private:
+  int day{1};
+  int month{1};
+  int year{0};
+};
+```
+As you can see, a constructor is also able to call other member functions of the object it is constructing. In the example above, Date(int d, int m, int y) assigns a member variable by calling Day(int d).
+
+### Default Constructor
+A class object is always initialized by calling a constructor. That might lead you to wonder how it is possible to initialize a class or structure that does not define any constructor at all.
+
+For example:
+```cpp
+class Date { 
+  int day{1};
+  int month{1};
+  int year{0};
+};
+```
+class Date { 
+  int day{1};
+  int month{1};
+  int year{0};
+};
+We can initialize an object of this class, even though this class does not explicitly define a constructor.
+
+This is possible because of the [default constructor](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#cctor-constructors-assignments-and-destructors). [The compiler will define a default constructor](https://en.cppreference.com/w/cpp/language/default_constructor), which accepts no arguments, for any class or structure that does not contain an explicitly-defined constructor.
+
+### Scope Resolution
+C++ allows different [identifiers](https://en.cppreference.com/w/cpp/language/identifiers) (variable and function names) to have the same name, as long as they have different scope. For example, two different functions can each declare the variable int i, because each variable only exists within the scope of its parent function.
+
+In some cases, scopes can overlap, in which case the compiler may need assistance in determining which identifier the programmer means to use. The process of determining which identifier to use is called ["scope resolution"](https://docs.microsoft.com/en-us/cpp/cpp/scope-resolution-operator?view=vs-2019).
+
+### Scope Resultion Operator
+`::` is the [scope resolution operator](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_74/rzarg/cplr175.htm)
+
+```cpp
+Person::move(); \\ Call the move the function that is a member of the Person class.
+std::map m; \\ Initialize the map container from the C++ Standard Library. 
+```
+
+### Class
+Each class provides its own scope. We can use the scope resolution operator to specify identifiers from a class.
+
+This becomes particularly useful if we want to separate class declaration from class definition.
+```cpp
+class Date {
+ public:
+  int Day() const { return day; }
+  void Day(int day);  // Declare member function Date::Day().
+  int Month() const { return month; }
+  void Month(int month) {
+    if (month >= 1 && month <= 12) Date::month = month;
+  }
+  int Year() const { return year; }
+  void Year(int year) { Date::year = year; }
+
+ private:
+  int day{1};
+  int month{1};
+  int year{0};
+};
+
+// Define member function Date::Day().
+void Date::Day(int day) {
+  if (day >= 1 && day <= 31) Date::day = day;
+}
+```
+### Namespaces
+[Namespaces](https://en.cppreference.com/w/cpp/language/namespace) allow programmers to group logically related variables and functions together. Namespaces also help to avoid conflicts between to variables that have the same name in different parts of a program.
+
+```cpp
+namespace English {
+void Hello() { std::cout << "Hello, World!\n"; }
+}  // namespace English
+
+namespace Spanish {
+void Hello() { std::cout << "Hola, Mundo!\n"; }
+}  // namespace Spanish
+
+int main() {
+  English::Hello();
+  Spanish::Hello();
+}
+```
+In this example, we have two different void Hello() functions. If we put both of these functions in the same namespace, they would conflict and the program would not compile. However, by declaring each of these functions in a separate namespace, they are able to co-exist. Furthermore, we can specify which function to call by prefixing Hello() with the appropriate namespace, followed by the :: operator.
+
+### std Namespace
+You are already familiar with the std namespace, even if you didn't realize quite what it was. std is the namespace used by the C++ [Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library).
+
+Classes like std::vector and functions like std::sort are defined within the std namespace.
+
+### Initializer Lists
+[Initializer lists](https://en.cppreference.com/w/cpp/language/constructor) initialize member variables to specific values, just before the class constructor runs. This initialization ensures that class members are automatically initialized when an instance of the class is created.
+
+```cpp
+Date::Date(int day, int month, int year) : year_(y) {
+  Day(day);
+  Month(month);
+}
+```
+In this example, the member value year is initialized through the initializer list, while day and month are assigned from within the constructor. Assigning day and month allows us to apply the invariants set in the mutator.
+
+In general, [prefer initialization to assignment](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#c49-prefer-initialization-to-assignment-in-constructors). Initialization sets the value as soon as the object exists, whereas assignment sets the value only after the object comes into being. This means that assignment creates and opportunity to accidentally use a variable before its value is set.
+
+In fact, initialization lists ensure that member variables are initialized before the object is created. This is why class member variables can be declared const, but only if the member variable is initialized through an initialization list. Trying to initialize a const class member within the body of the constructor will not work.
+
+### Initializing Constant Members
+Initializer lists exist for a number of reasons. First, the compiler can optimize initialization faster from an initialization list than from within the constructor.
+
+A second reason is a bit of a technical paradox. If you have a const class attribute, you can only initialize it using an initialization list. Otherwise, you would violate the const keyword simply by initializing the member in the constructor!
+
+The third reason is that attributes defined as [references](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-glossary) must use initialization lists.
+
+This exercise showcases several advantages of initializer lists.
+(review `initializationList.cpp`)
 
 
 
